@@ -6,14 +6,12 @@
 /*   By: ababouel <ababouel@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:01:40 by ababouel          #+#    #+#             */
-/*   Updated: 2022/08/03 17:34:41 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/08/03 20:27:44 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cctype>
-
-using namespace std;
 
 void    ft_putstr(char *str)
 {
@@ -24,7 +22,7 @@ void    ft_putstr(char *str)
     while (str[x])
     {
         ch = toupper(str[x]);
-        cout << ch;
+        std::cout << ch;
         x++;   
     }
 }
@@ -41,9 +39,9 @@ int main(int ac, char **av)
             ft_putstr(av[x]);
             x++;
         }
-        cout <<""<< endl;
+        std::cout <<""<< std::endl;
     }
     else
-        cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << endl;
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
     return (0);
 }
