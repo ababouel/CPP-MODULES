@@ -4,15 +4,16 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # User-specific files
+.gitignore
 *.rsuser
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
-
+.DS_Store
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
-
+.vscode/c_cpp_properties.json
 # Mono auto generated files
 mono_crash.*
 
