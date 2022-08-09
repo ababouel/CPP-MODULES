@@ -3,18 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ababouel <ababouel@student.1337.ma>        +#+  +:+       +#+         #
+#    By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/03 16:04:53 by ababouel          #+#    #+#              #
-#    Updated: 2022/08/04 22:20:08 by ababouel         ###   ########.fr        #
+#    Updated: 2022/08/09 15:02:18 by ababouel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = C++ 
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 BDIR = build
-FILES = main phonebook.class 
+FILES = main classes/phonebook classes/contact 
 NAME = phonebook
+HEADERS = inc/contact.hpp inc/phonebook.hpp 
 OBJ = $(addprefix $(BDIR)/, $(FILES:=.o))
 
 all: $(NAME)
@@ -22,9 +23,9 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $^ -o $@
 
-$(BDIR)/%.o : %.cpp
+$(BDIR)/%.o : %.cpp $(HEADERS)
 	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@ -I ./inc
 	 
 clean:
 	rm -rf build
