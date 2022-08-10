@@ -6,16 +6,16 @@
 #    By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/03 16:04:53 by ababouel          #+#    #+#              #
-#    Updated: 2022/08/09 15:02:18 by ababouel         ###   ########.fr        #
+#    Updated: 2022/08/09 22:06:27 by ababouel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = C++ 
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 BDIR = build
-FILES = main classes/phonebook classes/contact 
+FILES = main classes/Phonebook classes/Contact 
 NAME = phonebook
-HEADERS = inc/contact.hpp inc/phonebook.hpp 
+HEADERS = inc/Contact.hpp inc/Phonebook.hpp 
 OBJ = $(addprefix $(BDIR)/, $(FILES:=.o))
 
 all: $(NAME)
@@ -31,7 +31,7 @@ clean:
 	rm -rf build
 
 fclean: clean
-	rm -rf megaphone
+	rm -rf $(NAME)
 
 re: fclean all
 
