@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 16:29:43 by ababouel          #+#    #+#             */
-/*   Updated: 2022/08/10 01:48:00 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/08/11 22:49:39 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include "Contact.hpp"
 
 Contact::Contact(void){
-    std::cout << "construct Contact Called " << std::endl;
+    // std::cout << "construct Contact Called " << std::endl;
     return ;
 }
 
 Contact::~Contact(void) {
-    std::cout << "Destructed Contact Called " << std::endl;
+    // std::cout << "Destructed Contact Called " << std::endl;
     return ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 16:29:14 by ababouel          #+#    #+#             */
-/*   Updated: 2022/08/10 01:55:02 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/08/12 01:19:42 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,8 @@ void Phonebook::addContact(int index, Contact person)
 
 void    Phonebook::displayContact(int index) const
 {
-    std::cout << "  index   |";
-    std::cout << "firstname |";
-    std::cout << " lastname |";
-    std::cout << " nickname |" << std::endl;
+    std::cout << "  index   |" << "firstname |";
+    std::cout << " lastname |" << " nickname |" << std::endl;
     std::cout << index << std::setw(10) << "|";
     std::cout << this->contacts[index].getFirstName() << std::setw(4) << "|";
     std::cout << this->contacts[index].getLastName() << std::setw(3) << "|";
