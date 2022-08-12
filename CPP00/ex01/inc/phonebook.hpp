@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:31:43 by ababouel          #+#    #+#             */
-/*   Updated: 2022/08/10 01:24:47 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/08/12 05:49:40 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ class   Phonebook
         Phonebook(void);
         ~Phonebook(void);
 
-    void	addContact(int index, Contact person);
 	void	displayContact(int index) const;	
+    void    addContact(int index, Contact person);
 };
 
 #endif
