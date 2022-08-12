@@ -11,6 +11,7 @@
 *.userosscache
 *.sln.docstates
 .DS_Store
+CPP00/ex01/.vscode/
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 .vscode/c_cpp_properties.json
