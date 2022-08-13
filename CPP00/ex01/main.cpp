@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ababouel <ababouel@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:48:04 by ababouel          #+#    #+#             */
-/*   Updated: 2022/08/12 06:28:46 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/08/12 21:12:59 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,20 @@ int main()
 		}
 		else if(!write.compare("SEARCH"))
 		{
-			std::cout << "index of the contact" << std::endl;
-			std::getline(std::cin,write);
-			pBook.displayContact(std::stoi(write));
+			try
+			{
+				std::cout << "index of the contact : ";
+				std::getline(std::cin,write);
+				pBook.displayContact(std::stoi(write));
+			}
+			catch (std::invalid_argument const& ex)
+			{
+				std::cout << "invalid index" << ex.what() << std::endl;
+			}
+			catch (std::out_of_range const& ex)
+			{
+				std::cout << "invalid index" << ex.what() << std::endl;
+			}
 		}
 		else if(!write.compare("EXIT"))
 			break;
