@@ -6,7 +6,7 @@
 #    By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/14 16:02:01 by ababouel          #+#    #+#              #
-#    Updated: 2022/08/14 21:43:33 by ababouel         ###   ########.fr        #
+#    Updated: 2022/08/14 22:07:26 by ababouel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,4 +35,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY : re all clean fclean%  
+.PHONY : re all clean fclean 
