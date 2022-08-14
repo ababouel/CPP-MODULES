@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 15:13:12 by ababouel          #+#    #+#             */
-/*   Updated: 2022/08/13 19:04:04 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/08/14 17:38:09 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void Account::makeDeposit( int deposit )
 {
     this->_amount += deposit;
     Account::_totalAmount += deposit;
-
+    
 }
 bool	makeWithdrawal( int withdrawal );
 int		checkAmount( void ) const;
