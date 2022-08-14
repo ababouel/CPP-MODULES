@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 17:10:03 by ababouel          #+#    #+#             */
-/*   Updated: 2022/08/14 19:27:16 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/08/14 21:57:57 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Zombie
         Zombie(void);
         Zombie(std::string name);
         ~Zombie();
-        void    announce( void );
+        void    announce( void ) const;
 };
 
 Zombie* zombieHorde( int N, std::string name);

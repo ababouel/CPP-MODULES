@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 17:10:03 by ababouel          #+#    #+#             */
-/*   Updated: 2022/08/14 18:46:54 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/08/14 22:00:30 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Zombie
     public:
         Zombie(std::string name);
         ~Zombie();
-        void    announce( void );
+        void    announce( void ) const;
 };
 
 void    randomChump(std::string name);
