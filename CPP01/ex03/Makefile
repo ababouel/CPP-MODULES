@@ -6,7 +6,7 @@
 #    By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/14 16:02:01 by ababouel          #+#    #+#              #
-#    Updated: 2022/08/14 22:07:26 by ababouel         ###   ########.fr        #
+#    Updated: 2022/08/15 17:10:14 by ababouel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = C++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 BDIR = build
 FILES = main classes/Weapon classes/HumanA classes/HumanB
-NAME = zombie
+NAME = unviolence
 HEADERS = inc/Weapon.h inc/HumanA.h inc/HumanB.h
 OBJ = $(addprefix $(BDIR)/, $(FILES:=.o))
 
