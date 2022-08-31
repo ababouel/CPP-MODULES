@@ -6,7 +6,7 @@
 #    By: ababouel <ababouel@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/20 20:48:56 by ababouel          #+#    #+#              #
-#    Updated: 2022/08/20 20:52:19 by ababouel         ###   ########.fr        #
+#    Updated: 2022/08/30 15:05:00 by ababouel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CFLAGS = -Wall -Werror -Wextra -std=c++98
 BDIR = build
 FILES = main classes/SedL 
 NAME = sedl
-HEADERS = inc/SedL.hpp 
+HEADERS = inc/SedL.h 
 OBJ = $(addprefix $(BDIR)/, $(FILES:=.o))
 
 all: $(NAME)
