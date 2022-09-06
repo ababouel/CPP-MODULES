@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ababouel <ababouel@student.1337.ma>        +#+  +:+       +#+         #
+#    By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/20 20:48:56 by ababouel          #+#    #+#              #
-#    Updated: 2022/08/30 15:05:00 by ababouel         ###   ########.fr        #
+#    Updated: 2022/09/06 21:39:14 by ababouel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ clean:
 	rm -rf build
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) 
 
 re: fclean all
 
