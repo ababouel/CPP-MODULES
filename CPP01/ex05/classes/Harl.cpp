@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 17:07:37 by ababouel          #+#    #+#             */
-/*   Updated: 2022/09/07 22:16:17 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/09/07 22:46:44 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ void Harl::info(void)
 void Harl::warning(void)
 {
     std::cout << "[ WARNING ]\n";
-    std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month.";
+    std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month.\n";
 }
 void Harl::error(void)
 {
     std::cout << "[ ERROR ]\n";
-    std::cout << "This is unacceptable! I want to speak to the manager now.";
+    std::cout << "This is unacceptable! I want to speak to the manager now.\n";
 } 
 
 void Harl::complain(std::string level)
@@ -48,19 +48,6 @@ void Harl::complain(std::string level)
             break;
         state++;
     }
-    switch (state)
-    {
-        case 0:
-            (this->*ptfptr[state])();
-            break;
-        case 1:
-            (this->*ptfptr[state])();
-            break;
-        case 2:
-            (this->*ptfptr[state])();
-            break;
-        case 3:
-            (this->*ptfptr[state])();
-            break;
-    }
+    if (state < 4)
+        (this->*ptfptr[state])();
 }
