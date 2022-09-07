@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:31:43 by ababouel          #+#    #+#             */
-/*   Updated: 2022/08/13 02:06:19 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/09/07 16:23:56 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class   Phonebook
 
 	void	displayContact(int index) const;	
     void    addContact(int index, Contact person);
+    int     checkIndex(int index);
 };
 
 #endif

@@ -3,39 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ababouel <ababouel@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 16:29:43 by ababouel          #+#    #+#             */
-/*   Updated: 2022/08/12 06:13:18 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/09/07 16:02:45 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Contact.hpp"
 
-Contact::Contact(void){
-    // std::cout << "construct Contact Called " << std::endl;
-    return ;
-}
+Contact::Contact(void){}
 
-Contact::~Contact(void) {
-    // std::cout << "Destructed Contact Called " << std::endl;
-    return ;
-}
+Contact::~Contact(void) {}
 
-void Contact::setContact(std::string frstname, std::string lstname, std::string nckname, std::string phnumber, std::string darkSecret)
+void Contact::setContact(std::string *word)
 {
-    std::string fname = frstname.substr(0,9);
-    std::string lname = lstname.substr(0,9);
-    std::string ncname = nckname.substr(0,9);
-    fname.replace(8,9,".");
-    lname.replace(8,9,".");
-    ncname.replace(8,9,".");
-    this->firstName = fname;
-    this->lastName = lname;
-    this->nickName = ncname;
-    this->phoneNumber = phnumber;
-    this->darkSecret = darkSecret;
+    this->firstName = word[0];
+    this->lastName = word[1];
+    this->nickName = word[2];
+    this->phoneNumber = word[3];
+    this->darkSecret = word[4];
 }
 
 std::string Contact::getFirstName(void) const {
@@ -56,4 +44,16 @@ std::string Contact::getPhoneNumber(void) const {
 
 std::string Contact::getDarkSecret(void) const {
     return (this->darkSecret);
+}
+
+std::string Contact::filterWord(std::string &word)
+{
+    std::string fname; 
+    if (word.length() > 10 )
+    {
+        fname = word.substr(0,9);
+        fname.replace(8,9,".");
+        return (fname);
+    }
+    return (word);
 }
