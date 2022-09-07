@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 22:09:58 by ababouel          #+#    #+#             */
-/*   Updated: 2022/09/05 22:24:05 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/09/07 23:02:08 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Weapon
         Weapon(std::string tp);
         ~Weapon();
         const std::string &getType(void);
-        void        setType(std::string type);        
+        void  setType(std::string type);        
 };
 
 #endif
