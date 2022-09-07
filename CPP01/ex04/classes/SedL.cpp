@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 22:25:01 by ababouel          #+#    #+#             */
-/*   Updated: 2022/09/06 21:15:38 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/09/07 14:37:23 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,25 @@ SedL::~SedL(){}
 void SedL::ft_replace(std::ifstream &filename)
 {
     std::string swap;
-    // int check;
+    std::string swap2;
     this->ofile = ft_crfile(name);
     while (std::getline(filename, swap))
     {
         data.append(swap);
         data.append("\n");
     }
-     if (!data.empty()) {
+    if (!data.empty())
         data.erase(data.length() - 1);
-    }
     for (size_t x = 0; x < data.length(); x++)
     {
         if (data.substr(x).length() >= s2.length() && data.substr(x,s1.length()).compare(s1) == 0)
         {
-            for (size_t y = 0; y < s2.length(); y++)
-            {
-                data[x] = s2[y];
+            swap = data.substr(0,x);
+            for (size_t y = 0; y < s1.length(); y++)
                 x++;
-            }            
+            swap2 = data.substr(x);
+            data.clear();
+            data = swap + s2 + swap2; 
         }
     }
     *ofile << data;
