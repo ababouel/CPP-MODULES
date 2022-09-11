@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 23:20:20 by ababouel          #+#    #+#             */
-/*   Updated: 2022/09/10 19:03:22 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/09/11 16:53:21 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,14 @@ Fixed::~Fixed()
 {
     std::cout << "Destructor called\n";
 }
+
 Fixed::Fixed(int const nInt) : number(nInt) {}
+
 Fixed::Fixed(float const nfloat)
 {
     this->numberOfBitPerFraction = std::roundf(nfloat);
 }
+
 int Fixed::getRawBits(void) const
 {
     std::cout << "getRawBits member function called\n";
@@ -62,5 +65,6 @@ int     Fixed::toInt(void) const
 
 std::ostream& operator<<(ostream& os, const Fixed& fix)
 {
-    
+    os << fix.toFloat();
+    return (os);
 }

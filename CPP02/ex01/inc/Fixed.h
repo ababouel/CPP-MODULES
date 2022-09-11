@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 23:20:30 by ababouel          #+#    #+#             */
-/*   Updated: 2022/09/10 18:55:46 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/09/11 16:53:58 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ class Fixed
         int     toInt(void) const;
 };
 
-std::ostream& operator<<(ostream& os, const Fixed& fix);
+std::ostream& operator<<(std::ostream& os, const Fixed& fix);
 
 #endif
