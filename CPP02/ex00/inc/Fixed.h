@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 23:20:30 by ababouel          #+#    #+#             */
-/*   Updated: 2022/09/10 17:37:14 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/09/11 20:00:23 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Fixed
 {
     private:
         int number;
-        static int const numberOfBitPerFraction; 
+        static int const nOFBits; 
     public:
         Fixed(void);
         Fixed(const Fixed &fixed);
