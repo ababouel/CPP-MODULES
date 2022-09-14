@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 23:20:20 by ababouel          #+#    #+#             */
-/*   Updated: 2022/09/14 00:27:17 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/09/14 06:50:54 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,29 @@ const int Fixed::nOFBits = 8;
 
 Fixed::Fixed(void) : pointFix(0) 
 {
-    std::cout << "Default constructor called\n";
+    // std::cout << "Default constructor called\n";
 }
 
 Fixed::Fixed(const Fixed &fixed)
 {
-    std::cout << "Copy constructor called \n";
+    // std::cout << "Copy constructor called \n";
     *this = fixed;
 }
 
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called\n";
+    // std::cout << "Destructor called\n";
 }
 
 Fixed::Fixed(int const nInt) 
 {
-    std::cout << "Int constructor called\n";
+    // std::cout << "Int constructor called\n";
     this->pointFix = nInt << nOFBits; 
 }
 
 Fixed::Fixed(float const nfloat)
 {
-    std::cout << "Float constructor called\n";
+    // std::cout << "Float constructor called\n";
     this->pointFix = roundf( nfloat * (1 << this->nOFBits));
 }
 
@@ -54,7 +54,7 @@ void Fixed::setRawBits(int const raw)
 
 Fixed& Fixed::operator=(const Fixed &fixed)
 {
-    std::cout << "Copy assignment operator called\n";
+    // std::cout << "Copy assignment operator called\n";
     this->pointFix = fixed.getRawBits();
     return (*this);
 }
@@ -99,28 +99,32 @@ bool    Fixed::operator ==(const Fixed &fixed)
     return (this->pointFix == fixed.pointFix ? true : false);
 }
 
-Fixed&  Fixed::operator +(const Fixed &fixed)
+Fixed  Fixed::operator +(const Fixed &fx0)
 {
-    this->pointFix = this->pointFix + fixed.pointFix;
-    return (*this);
+    float number = this->toFloat() + fx0.toFloat();
+    Fixed fix = Fixed(number);
+    return (fix); 
 }
 
-Fixed&  Fixed::operator -(const Fixed &fixed)
+Fixed  Fixed::operator -(const Fixed &fx0)
 {
-    this->pointFix = this->pointFix - fixed.pointFix;
-    return (*this);
+    float number = this->toFloat() - fx0.toFloat();
+    Fixed fix = Fixed(number);
+    return (fix); 
 }
 
-Fixed&  Fixed::operator *(const Fixed &fixed)
+Fixed  Fixed::operator *(const Fixed &fx0)
 {
-    this->pointFix = this->pointFix * fixed.pointFix;
-    return (*this);
+   float number = this->toFloat() * fx0.toFloat();
+   Fixed fix = Fixed(number);
+   return (fix); 
 }
 
-Fixed&  Fixed::operator /(const Fixed &fixed)
+Fixed  Fixed::operator /(const Fixed &fx0)
 {
-    this->pointFix = this->pointFix / fixed.pointFix;
-    return (*this);
+   float number = this->toFloat() / fx0.toFloat();
+   Fixed fix = Fixed(number);
+   return (fix); 
 }
 
 Fixed&  Fixed::operator ++()
@@ -131,8 +135,10 @@ Fixed&  Fixed::operator ++()
 
 Fixed&  Fixed::operator ++(int)
 {
-    this->pointFix++;
-    return (*this);
+    Fixed* fix = new Fixed();
+    fix->pointFix = this->pointFix;
+    this->pointFix += this->pointFix;
+    return (*fix);
 }
 
 Fixed&  Fixed::operator --()
@@ -159,16 +165,22 @@ Fixed& Fixed::max(Fixed& fx0, Fixed &fx1)
 
 Fixed& Fixed::min(const Fixed& fx0, const Fixed &fx1)
 {
-    Fixed fix = Fixed();
-    fix = fx0.pointFix > fx1.pointFix ? fx1.pointFix : fx0.pointFix;
-    return (fix);
+    Fixed *fix = new Fixed();
+    if(fx0.pointFix > fx1.pointFix)
+        *fix = fx1;
+    else
+        *fix = fx0;
+    return (*fix);
 }
 
-Fixed& Fixed::max(const Fixed& fx0, const Fixed &fx1)
+Fixed& Fixed::max(const Fixed& fx0, const Fixed& fx1)
 {
-    Fixed fix;
-    fix = fx0.pointFix > fx1.pointFix ? fx0.pointFix : fx1.pointFix;
-    return (fix);
+    Fixed *fix = new Fixed();
+    if(fx0.pointFix > fx1.pointFix)
+        *fix = fx0;
+    else
+        *fix = fx1;
+    return (*fix);
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fix)
