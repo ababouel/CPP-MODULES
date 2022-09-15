@@ -6,22 +6,21 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 23:19:39 by ababouel          #+#    #+#             */
-/*   Updated: 2022/09/14 06:54:12 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/09/15 18:44:54 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.h"
+#include "Point.h"
 
 int main()
 {
-    Fixed a;
-    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-    std::cout << Fixed::max( a, b ) << std::endl;    
+    Point pA = Point(0 , 0);
+    Point pB = Point(10 , 10);
+    Point pC = Point(20 , 0);
+    Point pPyes = Point(10 , 5);
+    std::cout << "pP inside a triangle ABC :"<< bsp(pA, pB, pC, pPyes) << std::endl;
+    Point pPno = Point(10 , 20);
+    std::cout << "pP inside a triangle ABC :"<< bsp(pA, pB, pC, pPno) << std::endl;
+    
     return (0);    
 }

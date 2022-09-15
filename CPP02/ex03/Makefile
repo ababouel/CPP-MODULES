@@ -6,16 +6,16 @@
 #    By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/14 16:02:01 by ababouel          #+#    #+#              #
-#    Updated: 2022/09/12 19:28:15 by ababouel         ###   ########.fr        #
+#    Updated: 2022/09/15 18:49:46 by ababouel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = C++ 
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -g
 BDIR = build
-FILES = main classes/Fixed 
+FILES = main classes/Fixed  classes/bsp classes/Point 
 NAME = fixed
-HEADERS = inc/Fixed.h 
+HEADERS = inc/Fixed.h inc/Point.h 
 OBJ = $(addprefix $(BDIR)/, $(FILES:=.o))
 
 all: $(NAME)
