@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 23:20:20 by ababouel          #+#    #+#             */
-/*   Updated: 2022/09/15 19:36:42 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/09/16 23:31:48 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ Fixed::Fixed(void) : pointFix(0)
     // std::cout << "Default constructor called\n";
 }
 
-Fixed::Fixed(const Fixed &fixed)
+Fixed::Fixed(const Fixed &fixed) : pointFix(fixed.pointFix) 
 {
     // std::cout << "Copy constructor called \n";
-    *this = fixed;
+    // *this = fixed;
 }
 
 Fixed::~Fixed()

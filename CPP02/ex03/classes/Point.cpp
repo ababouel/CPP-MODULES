@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 14:56:14 by ababouel          #+#    #+#             */
-/*   Updated: 2022/09/15 19:43:58 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/09/16 23:42:46 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,26 @@
 
 Point::Point(void) : x(0) , y(0) {}
 
-Point::Point(const float x, const float y) : x(Fixed(x)), y(Fixed(y)) {}
+Point::Point(const float x, const float y) : x(Fixed(x)), y(Fixed(y)){}
 
-Point::Point(const Point& point)
+
+Point::Point(const Point& point): x(point.x),y(point.y){}
+
+Point& Point::operator=(Point &point)
 {
-    *this = point;    
-}
-
-Fixed Point::getpfX(void) 
-{   
-    this->xp = this->x; 
-    return (this->xp);
-}
-
-Fixed Point::getpfY(void) const
-{
-    return (this->y);
-}
-
-Point& Point::operator=(const Point &point) const
-{
-    this->xp = point.getpfX();
-    return (*this);
+    (Fixed)this->x = point.getPointX();
+    (Fixed)this->y = point.getPointY();
+    return (*this); 
 }
 
 Point::~Point(){}
 
-float Point::getPointX(void)
+Fixed& Point::getPointX(void) const
 {
-    return (this->x.toFloat());
+    return ((Fixed&)this->x); 
 }
 
-float Point::getPointY(void)
+Fixed& Point::getPointY(void) const
 {
-    return (this->y.toFloat());
+    return ((Fixed&)this->y);
 }

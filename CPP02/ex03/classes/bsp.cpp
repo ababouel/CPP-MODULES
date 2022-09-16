@@ -6,19 +6,20 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 14:55:51 by ababouel          #+#    #+#             */
-/*   Updated: 2022/09/15 18:48:03 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/09/16 23:55:54 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.h"
 
-float     clArea(Point& x, Point& y, Point& z)
+float     clArea(Point x, Point y, Point z)
 {
-    float area = (1 / 2) * 
-        ( x.getPointX() * (y.getPointY() - z.getPointY()) 
-        + y.getPointX() * (z.getPointY() - x.getPointY())
-        + z.getPointX() * (x.getPointY() - y.getPointY()));
-    return (area);
+    float area = (float) x.getPointX().toFloat() * (float) (y.getPointY().toFloat() - z.getPointY().toFloat()) 
+        + (float) y.getPointX().toFloat() * (float) (z.getPointY().toFloat() - x.getPointY().toFloat()) 
+        + (float) z.getPointX().toFloat() * (float) (x.getPointY().toFloat() - y.getPointY().toFloat());
+    if (area < 0)
+        return (-1 * area * 0.5);
+    return (area * 0.5);
 }
 
 bool    bsp( Point const a, Point const b, Point const c, Point const point)
