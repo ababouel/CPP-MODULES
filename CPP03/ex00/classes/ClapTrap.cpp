@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 01:50:37 by ababouel          #+#    #+#             */
-/*   Updated: 2022/09/17 06:31:45 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/09/18 16:40:16 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    this->htPoints -= amount;
+    if(amount <= this->htPoints)
+        this->htPoints -= amount;
+    else
+        this->htPoints = 0;
     std::cout << "ClapTrap "<< this->name << " takeDamage "<< amount <<" , left "<< this->htPoints << " hitpoint " << std::endl;
 }
 
@@ -42,6 +45,6 @@ void ClapTrap::beRepaired(unsigned int amount)
     {
         this->enPoints--;
         this->htPoints += amount;
+        std::cout << "ClapTrap "<< this->name << " beRepaired "<< amount << " , left "<< this->htPoints << " hitpoint " << std::endl;
     }
-    std::cout << "ClapTrap "<< this->name << " beRepaired "<< amount << " , left "<< this->htPoints << " hitpoint " << std::endl;
 }
