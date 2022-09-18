@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 01:51:54 by ababouel          #+#    #+#             */
-/*   Updated: 2022/09/17 03:56:31 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/09/18 17:05:58 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ class ClapTrap
         unsigned int enPoints;
         unsigned int atDamage;
     public:
+        ClapTrap(void);
         ClapTrap(std::string name);
+        ClapTrap& operator=(const ClapTrap& clapTrap);
         ~ClapTrap();
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
