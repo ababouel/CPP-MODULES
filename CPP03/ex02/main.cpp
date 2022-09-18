@@ -6,11 +6,12 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 01:51:23 by ababouel          #+#    #+#             */
-/*   Updated: 2022/09/18 19:42:45 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/09/18 23:12:58 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.h"
+#include "FragTrap.h"
 
 int main()
 {
@@ -23,4 +24,9 @@ int main()
    hamid.beRepaired(200);
    hamid.takeDamage(5);
    hamid.guardGate();
+   FragTrap hassan = FragTrap("Hassan");
+   hassan.attack("hamid");
+   hassan.beRepaired(300);
+   hassan.takeDamage(30);
+   hassan.highFivesGuys();
 }
