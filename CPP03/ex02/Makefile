@@ -6,7 +6,7 @@
 #    By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/14 16:02:01 by ababouel          #+#    #+#              #
-#    Updated: 2022/09/18 23:08:00 by ababouel         ###   ########.fr        #
+#    Updated: 2022/09/18 23:29:24 by ababouel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ CC = C++
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -g
 BDIR = build
 FILES = main classes/ClapTrap classes/ScavTrap classes/FragTrap 
-NAME = fragtrap
-HEADERS = inc/ClapTrap.h inc/ScavTrap.h inc/FragTrap.h
+NAME = Fragtrap
+HEADERS = inc/ClapTrap.h inc/ScavTrap.h inc/FragTrap.h 
 OBJ = $(addprefix $(BDIR)/, $(FILES:=.o))
 
 all: $(NAME)
