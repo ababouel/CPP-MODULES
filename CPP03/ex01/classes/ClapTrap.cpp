@@ -6,17 +6,20 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 01:50:37 by ababouel          #+#    #+#             */
-/*   Updated: 2022/09/18 19:37:50 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/09/19 21:50:30 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.h"
 
-ClapTrap::ClapTrap() : name(0),htPoints(0),enPoints(0),atDamage(0){}
+ClapTrap::ClapTrap() : name(0),htPoints(0),enPoints(0),atDamage(0)
+{
+    std::cout << "ClapTrap created !!!" << std::endl; 
+}
 
 ClapTrap::ClapTrap(std::string name) : name(name), htPoints(10), enPoints(10), atDamage(0)
 {
-    std::cout << "Player created: " << name << std::endl; 
+    std::cout << "ClapTrap created : "<< this->name << std::endl; 
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& clapTrap)
@@ -30,7 +33,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& clapTrap)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "Player Killed: " << name << std::endl; 
+    std::cout << "ClapTrap Killed: " << name << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)
@@ -38,7 +41,7 @@ void ClapTrap::attack(const std::string& target)
     if (this->htPoints > 0 && this->enPoints > 0)
     {
         this->enPoints--;
-        std::cout << "ClapTrap "<< this->name << " attacks "<< target <<" , causing "<< this->atDamage <<" points of damage!"<< std::endl;
+        std::cout <<  this->name << " : attacks "<< target <<" , causing "<< this->atDamage <<" points of damage!"<< std::endl;
     }
 }
 
@@ -48,7 +51,7 @@ void ClapTrap::takeDamage(unsigned int amount)
         this->htPoints -= amount;
     else
         this->htPoints = 0;
-        std::cout << "ClapTrap "<< this->name << " takeDamage "<< amount <<" , left "<< this->htPoints << " hitpoint " << std::endl;
+        std::cout << this->name << " : takeDamage "<< amount <<" , left "<< this->htPoints << " hitpoint " << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
@@ -57,6 +60,6 @@ void ClapTrap::beRepaired(unsigned int amount)
     {
         this->enPoints--;
         this->htPoints += amount;
-        std::cout << "ClapTrap "<< this->name << " beRepaired "<< amount << " , left "<< this->htPoints << " hitpoint " << std::endl;
+        std::cout << this->name << " : beRepaired "<< amount << " , left "<< this->htPoints << " hitpoint " << std::endl;
     }
 }

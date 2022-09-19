@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 01:51:23 by ababouel          #+#    #+#             */
-/*   Updated: 2022/09/18 19:42:45 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/09/19 21:47:33 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 int main()
 {
-   ClapTrap jack =  ClapTrap("Jack");
-   jack.attack("Hamid");
-   jack.takeDamage(5);
-   jack.beRepaired(100);
-   ScavTrap hamid = ScavTrap("Hamid");
-   hamid.attack("Jack");
-   hamid.beRepaired(200);
-   hamid.takeDamage(5);
-   hamid.guardGate();
+   ClapTrap *jack = new ClapTrap("Jack");
+   ClapTrap *hamid = new ScavTrap("Hamid");
+   jack->attack("hamid");
+   hamid->takeDamage(0);
+   hamid->attack("Jack");
+   jack->takeDamage(20);
+   jack->beRepaired(100);
+   hamid->beRepaired(100); 
+   delete hamid;
+   delete jack;
 }
