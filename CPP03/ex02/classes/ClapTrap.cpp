@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 01:50:37 by ababouel          #+#    #+#             */
-/*   Updated: 2022/09/18 19:37:50 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/09/19 21:56:17 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ ClapTrap::ClapTrap() : name(0),htPoints(0),enPoints(0),atDamage(0){}
 
 ClapTrap::ClapTrap(std::string name) : name(name), htPoints(10), enPoints(10), atDamage(0)
 {
-    std::cout << "Player created: " << name << std::endl; 
+    std::cout << " created: " << name << std::endl; 
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& clapTrap)
