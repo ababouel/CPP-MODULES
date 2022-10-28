@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 17:03:47 by ababouel          #+#    #+#             */
-/*   Updated: 2022/09/18 21:08:24 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/10/28 12:52:02 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
     this->atDamage = 20;
     this->enPoints = 50;
     this->htPoints = 100; 
+	std::cout << " Scavtrap created: " << name << std::endl; 
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& scav)
@@ -30,7 +31,10 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& scav)
     return (*this);
 }
 
-ScavTrap::~ScavTrap() {}
+ScavTrap::~ScavTrap() 
+{
+    std::cout << "ScavTrap Killed: " << name << std::endl;
+}
 
 void    ScavTrap::guardGate()
 {
