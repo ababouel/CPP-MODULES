@@ -6,7 +6,7 @@
 /*   By: abdelghani <abdelghani@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 15:39:11 by abdelghani        #+#    #+#             */
-/*   Updated: 2022/10/31 17:40:36 by abdelghani       ###   ########.fr       */
+/*   Updated: 2022/10/31 18:16:38 by abdelghani       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ Animal::~Animal()
 
 void Animal::makeSound() const 
 {
-	std::cout << "   " <<this->type << "Default sound\n";
+	std::cout << "  " <<this->type << "Default sound\n";
 }
