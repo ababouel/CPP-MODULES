@@ -6,7 +6,7 @@
 /*   By: abdelghani <abdelghani@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 15:39:17 by abdelghani        #+#    #+#             */
-/*   Updated: 2022/10/31 17:41:36 by abdelghani       ###   ########.fr       */
+/*   Updated: 2022/10/31 17:51:42 by abdelghani       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Dog&	Dog::operator=(const Dog &dog)
 
 Dog::~Dog()
 {
-	std::cout << this->type << " Destructor called\n";
+	std::cout << " " << this->type << " Destructor called\n";
 }
 
 void Dog::makeSound() const 
