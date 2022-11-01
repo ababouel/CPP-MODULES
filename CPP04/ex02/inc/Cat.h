@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdelghani <abdelghani@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 15:39:23 by abdelghani        #+#    #+#             */
-/*   Updated: 2022/10/31 18:16:52 by abdelghani       ###   ########.fr       */
+/*   Updated: 2022/11/01 18:09:15 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_H
 # define CAT_H
 
-# include "Animal.h"
+# include "AAnimal.h"
 # include "Brain.h"
 
-class Cat : public Animal
+class Cat : public AAnimal
 {
     private:
         Brain *brain;

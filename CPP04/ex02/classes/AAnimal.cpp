@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 15:39:11 by abdelghani        #+#    #+#             */
-/*   Updated: 2022/11/01 13:09:18 by ababouel         ###   ########.fr       */
+/*   Created: 2022/11/01 18:06:39 by ababouel          #+#    #+#             */
+/*   Updated: 2022/11/01 18:07:04 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Animal.h"
 
-Animal::Animal() : type("Animal") 
+#include "../inc/AAnimal.h"
+
+AAnimal::AAnimal() : type("AAnimal") 
 {
-	std::cout << "Animal Default constructor called\n";
+	std::cout << "AAnimal Default constructor called\n";
 }
 
-Animal::Animal(const Animal &animal)
+AAnimal::AAnimal(const AAnimal &animal)
 {
 	*this = animal;
 }
 
-Animal&	Animal::operator=(const Animal &animal)
+AAnimal&	AAnimal::operator=(const AAnimal &animal)
 {
 	this->type = animal.type;
 	return (*this);
 }
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
-	std::cout << "Animal Destructor called\n";
+	std::cout << "AAnimal Destructor called\n";
 }
