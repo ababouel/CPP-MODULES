@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdelghani <abdelghani@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 15:39:20 by abdelghani        #+#    #+#             */
-/*   Updated: 2022/10/31 17:43:14 by abdelghani       ###   ########.fr       */
+/*   Created: 2022/11/01 11:04:20 by ababouel          #+#    #+#             */
+/*   Updated: 2022/11/01 11:12:45 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ class Animal
         Animal& operator=(const Animal& animal);
         virtual ~Animal();
         
-        virtual void    makeSound() const;
+        std::string		getType() const;
+        virtual	void	makeSound() const;
 };
 
 #endif

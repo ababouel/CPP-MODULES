@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdelghani <abdelghani@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 15:39:11 by abdelghani        #+#    #+#             */
-/*   Updated: 2022/10/31 18:18:13 by abdelghani       ###   ########.fr       */
+/*   Created: 2022/11/01 11:04:46 by ababouel          #+#    #+#             */
+/*   Updated: 2022/11/01 11:19:40 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,10 @@ Animal::~Animal()
 
 void Animal::makeSound() const 
 {
-	std::cout << "  " <<this->type << "Default sound\n";
+	std::cout << "  " <<this->type << " Default sound\n";
+}
+
+std::string		Animal::getType() const
+{
+	return (this->type);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdelghani <abdelghani@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 15:39:23 by abdelghani        #+#    #+#             */
-/*   Updated: 2022/10/31 17:43:11 by abdelghani       ###   ########.fr       */
+/*   Updated: 2022/11/01 11:03:28 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Cat : public Animal
         Cat(void);
         Cat(const Cat &cat);
         Cat& operator=(const Cat &cat);
-        virtual ~Cat();
+        ~Cat();
 
         void makeSound() const;
 };

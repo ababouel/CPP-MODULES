@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdelghani <abdelghani@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 15:39:15 by abdelghani        #+#    #+#             */
-/*   Updated: 2022/10/31 17:51:26 by abdelghani       ###   ########.fr       */
+/*   Created: 2022/11/01 11:05:05 by ababouel          #+#    #+#             */
+/*   Updated: 2022/11/01 11:19:02 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ Cat::~Cat()
 
 void Cat::makeSound() const 
 {
-	std::cout << "   Meow Meow Meow!!!\n";
+	std::cout << "  Meow Meow Meow!!!\n";
 }
