@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:26:45 by abdelghani        #+#    #+#             */
-/*   Updated: 2022/11/01 12:26:40 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/01 13:05:13 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,5 @@ int main()
 	std::cout << "\n";
 	for (int i = 0; i < 3; i++)
 		delete animals[i];
+	return (0);
 }
