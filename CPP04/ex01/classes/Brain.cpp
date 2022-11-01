@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 15:39:17 by abdelghani        #+#    #+#             */
-/*   Updated: 2022/11/01 12:04:26 by ababouel         ###   ########.fr       */
+/*   Created: 2022/11/01 11:23:07 by ababouel          #+#    #+#             */
+/*   Updated: 2022/11/01 12:05:43 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Dog.h"
+#include "Brain.h"
 
-Dog::Dog()
+Brain::Brain()
 {
-    this->type = "Dog";
-	std::cout << " " <<this->type <<" constructor called\n";
-	this->brain = new Brain();
+	for (int i = 0 ; i < 100 ; i++)
+		this->ideas[i] = "Brain\n";
+	std::cout << "  Brain constructor called\n";
 }
 
-Dog::Dog(const Dog &dog)
+Brain::Brain(const Brain &brain)
 {
-	*this = dog;
+	*this = brain;
 }
 
-Dog&	Dog::operator=(const Dog &dog)
+Brain&	Brain::operator=(const Brain &animal)
 {
-	this->type = dog.type;
-	this->brain = dog.brain; 
+	for (int i = 0 ; i < 100 ; i++)
+		this->ideas[i] = animal.ideas[i];
 	return (*this);
 }
 
-Dog::~Dog()
+Brain::~Brain()
 {
-	delete this->brain;
-	std::cout << " " << this->type << " Destructor called\n";
-}
-
-void Dog::makeSound() const 
-{
-	std::cout << "   Woof Woof Woof!!!\n";
+	std::cout << "  Brain Destructor called\n";
 }

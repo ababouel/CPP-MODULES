@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdelghani <abdelghani@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:26:45 by abdelghani        #+#    #+#             */
-/*   Updated: 2022/10/31 18:17:40 by abdelghani       ###   ########.fr       */
+/*   Updated: 2022/11/01 12:26:40 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,19 @@
 
 int main()
 {
-    const Animal* meta = new Animal(); 
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-
-    i->makeSound();
-    j->makeSound();
-    meta->makeSound();
-    delete meta;
-    delete i; 
-    delete j; 
+	const Animal *animals[6];
+	for	(int i = 0; i < 3; i++)
+	{
+		if (i < 3)
+			animals[i] = new Dog();
+		else
+			animals[i] = new Cat();
+	}
+	std::cout << "\n";
+	std::cout << "<============================>\n";
+	std::cout << "<============================>\n";
+	std::cout << "<============================>\n";
+	std::cout << "\n";
+	for (int i = 0; i < 3; i++)
+		delete animals[i];
 }

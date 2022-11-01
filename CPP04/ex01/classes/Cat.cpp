@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdelghani <abdelghani@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 15:39:15 by abdelghani        #+#    #+#             */
-/*   Updated: 2022/10/31 18:17:15 by abdelghani       ###   ########.fr       */
+/*   Updated: 2022/11/01 12:04:31 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 Cat::Cat()
 {
-    this->type = "Cat";
-	std::cout << " "<<this->type <<" Default constructor called\n";
+	this->type = "Cat";
+	std::cout << " "<<this->type <<" constructor called\n";
+	this->brain = new Brain();
 }
 
 Cat::Cat(const Cat &cat)
@@ -26,11 +27,13 @@ Cat::Cat(const Cat &cat)
 Cat&	Cat::operator=(const Cat &cat)
 {
 	this->type = cat.type;
+	this->brain = cat.brain;
 	return (*this);
 }
 
 Cat::~Cat()
 {
+	delete this->brain;
 	std::cout << " " << this->type << " Destructor called\n";
 }
 
