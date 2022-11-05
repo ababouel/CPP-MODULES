@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 15:42:06 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/05 18:08:05 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/05 18:53:13 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int main()
 		std::cout << b << "\n";
 		Bureaucrat d("bwww", 5);
 		std::cout << d << "\n";
-		Bureaucrat e("sseat", 151);
-		std::cout << e << "\n";
 		Bureaucrat c("kaleb", 0);
 		std::cout << c << "\n";
+		Bureaucrat e("sseat", 151);
+		std::cout << e << "\n";
 	}
 	catch(const std::exception& e)
 	{
