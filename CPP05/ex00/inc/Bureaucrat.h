@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ababouel <ababouel@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 14:36:10 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/02 16:32:35 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/05 18:26:32 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,33 @@
 
 # include <iostream>
 
-class Bureaucrat : public std::exception
+class Bureaucrat
 {
-    public:
-        const std::string	name;
-        int	grade;
-		void	GradeTooHighException() const;
-		void	GradeTooLowException()	const; 
+	private:
+		std::string const	name;
+		int					grade;
+	public:
+		Bureaucrat(std::string const name="", int grade=0);
+		Bureaucrat(const Bureaucrat &bureaucrat);
+		Bureaucrat& operator=(const Bureaucrat& bureaucrat);
+		~Bureaucrat();
+	
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
+		std::string	getName() const;
+		int			getGrade() const;
+		void		incrementGrade();
+		void		decrementGrade();
 };
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
 #endif

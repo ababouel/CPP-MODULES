@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ababouel <ababouel@student.1337.ma>        +#+  +:+       +#+         #
+#    By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 14:32:27 by ababouel          #+#    #+#              #
-#    Updated: 2022/11/02 14:33:41 by ababouel         ###   ########.fr        #
+#    Updated: 2022/11/05 17:56:47 by ababouel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,24 +14,24 @@ CC = C++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 BDIR = build
 FILES = main classes/Bureaucrat
-NAME = animal
+NAME = bureaucrat
 HEADERS = inc/Bureaucrat.h
 OBJ = $(addprefix $(BDIR)/, $(FILES:=.o))
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-        @$(CC) $(CFLAGS) $^ -o $@
+	@$(CC) $(CFLAGS) $^ -o $@
 
 $(BDIR)/%.o : %.cpp $(HEADERS)
-                @mkdir -p $(@D)
-                @$(CC) $(CFLAGS) -c $< -o $@ -I ./inc
-         
+	@mkdir -p $(@D)
+	@$(CC) $(CFLAGS) -c $< -o $@ -I ./inc
+	
 clean:
-                rm -rf build
+	rm -rf build
 
 fclean: clean
-                rm -rf $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 
