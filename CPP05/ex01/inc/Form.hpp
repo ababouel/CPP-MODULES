@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.h                                             :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 18:47:09 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/05 19:13:39 by ababouel         ###   ########.fr       */
+/*   Created: 2022/11/06 14:59:16 by ababouel          #+#    #+#             */
+/*   Updated: 2022/11/06 16:16:31 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_H
-# define FORM_H
+#ifndef FORM_HPP
+# define FORM_HPP
 
 #include <iostream>
+#include "Bureaucrat.h"
 
 class Form
 {
 	private:
-		const std::string	name;
+		std::string const	name;
 		bool				isSigned;
-		const int			gRSignIt;
-		const int			gRExecIt;
+		int	const			gRSignIt;
+		int	const			gRExecIt;
 		
 	public:
-		Form(std::string name="", const int gRSignIt=0, const int gRExecIt=0);
+		Form(std::string const name="", bool isSigned=false, int const gRSignIt=0, int const gRExecIt=0);
 		Form(const Form &form);
-		Form& operator=(const Form& form);
+		Form& operator=(const Form	&form);
 		~Form();
 		
 		class GradeTooHighException : public std::exception
@@ -40,9 +41,12 @@ class Form
 				const char* what() const throw();
 		};
 		std::string	getName() const;
-		std::string	getIsSigned() const;
+		bool		getIsSigned() const;
 		int			getGRSignIt() const;
 		int			getGRExecIt() const;
+		void		beSigned(Bureaucrat &bureaucrat);
 };
+
+std::ostream& operator<<(std::ostream& os, const Form& form);
 
 #endif

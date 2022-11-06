@@ -6,16 +6,16 @@
 #    By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 14:32:27 by ababouel          #+#    #+#              #
-#    Updated: 2022/11/05 17:56:47 by ababouel         ###   ########.fr        #
+#    Updated: 2022/11/06 15:51:52 by ababouel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = C++ 
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 BDIR = build
-FILES = main classes/Bureaucrat
+FILES = main classes/Bureaucrat classes/Form
 NAME = bureaucrat
-HEADERS = inc/Bureaucrat.h
+HEADERS = inc/Bureaucrat.h inc/Form.hpp
 OBJ = $(addprefix $(BDIR)/, $(FILES:=.o))
 
 all: $(NAME)
