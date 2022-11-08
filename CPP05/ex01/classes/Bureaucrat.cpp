@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ababouel <ababouel@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 14:35:47 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/08 19:27:55 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/08 20:22:42 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.h"
+#include "Form.h"
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
@@ -77,9 +78,10 @@ void	Bureaucrat::decrementGrade()
 
 void		Bureaucrat::signForm(Form &form)
 {
+	
 	if (form.getGRSignIt() >= this->getGrade())
 	{
-		form.beSigned(this);
+		form.beSigned(*this);
 		std::cout << this->getName() << " signs " << form.getName() << "\n";
 	}
 	else

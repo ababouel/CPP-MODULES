@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ababouel <ababouel@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 14:24:22 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/08 19:28:59 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/08 20:44:47 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.h"
+#include "Bureaucrat.h"
 
 const char* Form::GradeTooHighException::what() const throw()
 {
@@ -22,7 +23,7 @@ const char* Form::GradeTooLowException::what() const throw()
 	return "The bureaucrat grade is too low!!!";
 }
 
-Form::Form(std::string const name, bool isSigned= false, int const gRSignIt, int const gRExectIt) : name(name), gRSignIt(gRSignIt), gRExecIt(gRExecIt), isSigned(isSigned)
+Form::Form(std::string const name, bool isSigned, int const gRSignIt, int const gRExecIt) : name(name), isSigned(isSigned), gRSignIt(gRSignIt), gRExecIt(gRExecIt)
 {
 	if (this->name == "")
 		throw std::invalid_argument("you must add name and grade ");
@@ -67,17 +68,22 @@ int			Form::getGRExecIt() const
 
 void		Form::beSigned(Bureaucrat &bureaucrat)
 {
-	if (bureaucrat.getGrade() < this->getGRSignIt)
+	if (bureaucrat.getGrade() > this->getGRSignIt())
 		throw GradeTooLowException();
-	if (bureaucrat.getGrade() >= this->getGRSignIt)
+	if (bureaucrat.getGrade() <= this->getGRSignIt())
 		this->isSigned = true;
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& form)
 {
-	os << form.getName() << " form is signed "<< form.getIsSigned()
-		<< " grade required to sign " << form.getGRSignIt()
-		<< " grade required to execute " << form.getGRExecIt()
+	std::string iSSigned;
+	if (form.getIsSigned())
+		iSSigned = " is signed ,";
+	else
+		iSSigned = " is not signed yet ,";
+	os << form.getName() << iSSigned 
+		<< " grade required to sign: " << form.getGRSignIt()
+		<< ", grade required to execute: " << form.getGRExecIt()
 		<< " .\n";
 	return (os);
 }

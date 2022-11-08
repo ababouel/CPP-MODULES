@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ababouel <ababouel@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 15:42:06 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/08 15:33:38 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/08 20:46:06 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ int main()
 {
 	try
 	{
-		Bureaucrat a("Jack", 149);
-		std::cout << a << "\n";
+		Bureaucrat a("Jack", 60);
+		std::cout << a;
 		Bureaucrat b("hamid", 1);
-		std::cout << b << "\n";
-		Bureaucrat d("bwww", 5);
-		std::cout << d << "\n";
-		Bureaucrat e("sseat", 151);
-		std::cout << e << "\n";
-		Bureaucrat c("kaleb", 0);
-		std::cout << c << "\n";
+		std::cout << b;
+		Form f("form1",false,50,60);
+		std::cout << f;
+		a.signForm(f);
+		std::cout << f;
+		b.signForm(f);
+		std::cout << f;
 	}
 	catch(const std::exception& e)
 	{

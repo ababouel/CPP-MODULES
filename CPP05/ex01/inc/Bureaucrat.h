@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ababouel <ababouel@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 14:36:10 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/08 19:28:27 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/08 20:21:34 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define BUREAUCRAT_H
 
 # include <iostream>
-# include "Form.h"
+
+class Form;
 
 class Bureaucrat
 {
