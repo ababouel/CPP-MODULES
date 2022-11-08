@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 14:35:47 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/05 18:26:02 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/08 19:27:55 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,18 @@ void	Bureaucrat::decrementGrade()
 	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 	this->grade = grade;
+}
+
+void		Bureaucrat::signForm(Form &form)
+{
+	if (form.getGRSignIt() >= this->getGrade())
+	{
+		form.beSigned(this);
+		std::cout << this->getName() << " signs " << form.getName() << "\n";
+	}
+	else
+		std::cout << this->getName() << " cannot sign " << form.getName() << " because the bureaucrat's grade is lower than the form's grade to sign.\n";
+			
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)

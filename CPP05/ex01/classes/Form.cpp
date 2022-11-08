@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 14:24:22 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/06 16:48:56 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/08 19:28:59 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "Form.h"
 
 const char* Form::GradeTooHighException::what() const throw()
 {
@@ -68,6 +68,9 @@ int			Form::getGRExecIt() const
 void		Form::beSigned(Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() < this->getGRSignIt)
+		throw GradeTooLowException();
+	if (bureaucrat.getGrade() >= this->getGRSignIt)
+		this->isSigned = true;
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& form)

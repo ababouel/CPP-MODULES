@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   Form.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 14:59:16 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/06 16:16:31 by ababouel         ###   ########.fr       */
+/*   Created: 2022/11/08 15:32:23 by ababouel          #+#    #+#             */
+/*   Updated: 2022/11/08 19:28:50 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+
+#ifndef FORM_H
+# define FORM_H
 
 #include <iostream>
 #include "Bureaucrat.h"

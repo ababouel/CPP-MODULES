@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+         #
+#    By: ababouel <ababouel@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 14:32:27 by ababouel          #+#    #+#              #
-#    Updated: 2022/11/06 15:51:52 by ababouel         ###   ########.fr        #
+#    Updated: 2022/11/08 19:26:40 by ababouel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CFLAGS = -Wall -Werror -Wextra -std=c++98
 BDIR = build
 FILES = main classes/Bureaucrat classes/Form
 NAME = bureaucrat
-HEADERS = inc/Bureaucrat.h inc/Form.hpp
+HEADERS = inc/Bureaucrat.h inc/Form.h
 OBJ = $(addprefix $(BDIR)/, $(FILES:=.o))
 
 all: $(NAME)
