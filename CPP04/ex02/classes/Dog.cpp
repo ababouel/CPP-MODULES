@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 15:39:17 by abdelghani        #+#    #+#             */
-/*   Updated: 2022/11/01 12:04:26 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/09 19:19:28 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ Dog::Dog()
 
 Dog::Dog(const Dog &dog)
 {
+	this->brain = new Brain();
 	*this = dog;
 }
 
 Dog&	Dog::operator=(const Dog &dog)
 {
-	this->type = dog.type;
-	this->brain = dog.brain; 
+	*brain = *dog.brain; 
+	this->type = dog.type; 
 	return (*this);
 }
 
