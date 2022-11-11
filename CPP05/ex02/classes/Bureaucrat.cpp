@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 14:35:47 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/08 20:22:42 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/11 19:51:14 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,11 @@ void		Bureaucrat::signForm(Form &form)
 	else
 		std::cout << this->getName() << " cannot sign " << form.getName() << " because the bureaucrat's grade is lower than the form's grade to sign.\n";
 			
+}
+
+void		Bureaucrat::executeForm(Form const &form)
+{
+	
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)

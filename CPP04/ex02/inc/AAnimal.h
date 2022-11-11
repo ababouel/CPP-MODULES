@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 15:39:20 by abdelghani        #+#    #+#             */
-/*   Updated: 2022/11/01 18:06:12 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/11 17:15:46 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class AAnimal
         AAnimal(const AAnimal &animal);
         AAnimal& operator=(const AAnimal& animal);
         virtual ~AAnimal();
-        
-        virtual void    makeSound() const = 0;
+		
+		virtual void	makeSound() const = 0;
 };
 
 #endif
