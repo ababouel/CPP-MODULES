@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 18:44:34 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/11 20:26:00 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/11 23:31:03 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 class PresidentialPardonForm : public Form
 {
 	public:
-		PresidentialPardonForm(std::string const name="", bool isSigned=false, int const gRSignIt=0, int const gRExecIt=0);
+		PresidentialPardonForm(std::string target);
 		PresidentialPardonForm(const PresidentialPardonForm &form);
 		PresidentialPardonForm& operator=(const PresidentialPardonForm	&form);
 		~PresidentialPardonForm();
-		void	execute(Bureaucrat const &execute) const;
+		void	execute(Bureaucrat const &execute) const ;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 14:24:22 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/08 20:44:47 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/11 23:30:23 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ const char* Form::GradeTooLowException::what() const throw()
 	return "The bureaucrat grade is too low!!!";
 }
 
-Form::Form(std::string const name, bool isSigned, int const gRSignIt, int const gRExecIt) : name(name), isSigned(isSigned), gRSignIt(gRSignIt), gRExecIt(gRExecIt)
+Form::Form(std::string const name, bool isSigned, int const gRSignIt, int const gRExecIt) : name(name), gRSignIt(gRSignIt), gRExecIt(gRExecIt)
 {
 	if (this->name == "")
 		throw std::invalid_argument("you must add name and grade ");
@@ -31,6 +31,7 @@ Form::Form(std::string const name, bool isSigned, int const gRSignIt, int const 
 		throw Form::GradeTooHighException();
 	else if (this->gRSignIt > 150 || this->gRExecIt > 150)
 		throw Form::GradeTooLowException();
+	this->isSigned = false;
 }
 
 Form::Form(const Form &form) : gRSignIt(form.getGRSignIt()), gRExecIt(form.getGRExecIt())

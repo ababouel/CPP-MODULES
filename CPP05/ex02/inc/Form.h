@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:32:23 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/11 17:16:04 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/11 22:47:16 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ class Form
 		int	const			gRSignIt;
 		int	const			gRExecIt;
 		
+	protected:	
+		std::string			target;
+		
 	public:
-		Form(std::string const name="", bool isSigned=false, int const gRSignIt=0, int const gRExecIt=0);
+		Form(std::string const name="", int const gRSignIt=0, int const gRExecIt=0);
 		Form(const Form &form);
 		Form& operator=(const Form	&form);
 		virtual ~Form();
