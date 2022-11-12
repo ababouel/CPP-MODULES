@@ -6,31 +6,38 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 14:24:22 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/12 16:49:42 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/12 20:22:27 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.h"
 
+Form::GradeTooHighException::GradeTooHighException(std::string name) throw() : name(name){}
+Form::GradeTooHighException::~GradeTooHighException() throw(){}
 const char* Form::GradeTooHighException::what() const throw()
 {
-	return "The bureaucrat grade is too high!!!";
+	std::string str = this->name + " grade is too high!!!";
+	return (str.c_str());
 }
 
+Form::GradeTooLowException::GradeTooLowException(std::string name) throw() : name(name){}
+Form::GradeTooLowException::~GradeTooLowException() throw(){}
 const char* Form::GradeTooLowException::what() const throw()
 {
-	return "The bureaucrat grade is too low!!!";
+	std::string str = this->name + " grade is too low!!!";
+	return (str.c_str());
 }
+
 
 Form::Form(std::string const name, int const gRSignIt, int const gRExecIt) : name(name), gRSignIt(gRSignIt), gRExecIt(gRExecIt)
 {
 	if (this->name == "")
 		throw std::invalid_argument("you must add name and grade ");
 	else if (this->gRSignIt < 1 || this->gRExecIt < 1)
-		throw Form::GradeTooHighException();
+		throw Form::GradeTooHighException(this->name);
 	else if (this->gRSignIt > 150 || this->gRExecIt > 150)
-		throw Form::GradeTooLowException();
+		throw Form::GradeTooLowException(this->name);
 	this->isSigned = false;
 }
 
@@ -70,7 +77,7 @@ int			Form::getGRExecIt() const
 void		Form::beSigned(Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->getGRSignIt())
-		throw GradeTooLowException();
+		throw GradeTooLowException(bureaucrat.getName());
 	if (bureaucrat.getGrade() <= this->getGRSignIt())
 		this->isSigned = true;
 }

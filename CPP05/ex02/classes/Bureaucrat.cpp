@@ -6,21 +6,27 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 14:35:47 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/12 18:30:24 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/12 21:09:59 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.h"
 #include "Form.hpp"
 
+Bureaucrat::GradeTooHighException::GradeTooHighException(std::string name) throw() : name(name){}
+Bureaucrat::GradeTooHighException::~GradeTooHighException() throw(){}
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return "The bureaucrat grade is too high!!!";
+	std::string str = this->name + " grade is too high!!!";
+	return (str.c_str());
 }
 
+Bureaucrat::GradeTooLowException::GradeTooLowException(std::string name) throw() : name(name){}
+Bureaucrat::GradeTooLowException::~GradeTooLowException() throw(){}
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return "The bureaucrat grade is too low!!!";
+	std::string str = this->name + " grade is too low!!!";
+	return (str.c_str());
 }
 
 Bureaucrat::Bureaucrat(std::string const name, int grade) : name(name), grade(grade)
@@ -28,9 +34,9 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : name(name), grade(gr
 	if (this->name == "")
 		throw std::invalid_argument("you must add name and grade ");
 	else if (this->grade < 1)
-		throw Bureaucrat::GradeTooHighException();
+		throw Bureaucrat::GradeTooHighException(this->getName());
 	else if (this->grade > 150)
-		throw Bureaucrat::GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException(this->getName());
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &bureaucrat)
@@ -62,7 +68,7 @@ void	Bureaucrat::incrementGrade()
 	grade = this->grade;
 	grade--;
 	if (grade < 1)
-		throw Bureaucrat::GradeTooHighException();
+		throw Bureaucrat::GradeTooHighException(this->getName());
 	this->grade = grade;
 }
 
@@ -72,17 +78,19 @@ void	Bureaucrat::decrementGrade()
 	grade = this->grade;
 	grade++;
 	if (grade > 150)
-		throw Bureaucrat::GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException(this->getName());
 	this->grade = grade;
 }
 
 void		Bureaucrat::signForm(Form &form)
 {
-	if (form.getGRSignIt() >= this->getGrade())
+	if (form.getIsSigned() == false && form.getGRSignIt() >= this->getGrade())
 	{
 		form.beSigned(*this);
 		std::cout << this->getName() << " signs " << form.getName() << "\n";
 	}
+	else if(form.getIsSigned() == true)
+		std::cout << this->getName() << " cannot sign " << form.getName() << " because the Form is already signed.\n";
 	else
 		std::cout << this->getName() << " cannot sign " << form.getName() << " because the bureaucrat's grade is lower than the form's grade to sign.\n";
 			
@@ -91,7 +99,7 @@ void		Bureaucrat::signForm(Form &form)
 void		Bureaucrat::executeForm(Form const &form)
 {
 	form.execute(*this);
-	std::cout << this->getName() << " executed " << form;
+	std::cout  << this->getName() << " executed " << form.getName()<< "\n";
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)

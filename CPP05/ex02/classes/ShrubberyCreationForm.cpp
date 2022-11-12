@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 18:56:45 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/12 18:40:18 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/12 21:09:30 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,8 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &execute) const
 		}
 		std::cout << "heyluck\n";
 	}
+	else if (this->getIsSigned() == false)
+		throw std::invalid_argument("The " + this->getName() + " not yet signed !!!\n");
+	else
+		throw GradeTooLowException(execute.getName());
 }

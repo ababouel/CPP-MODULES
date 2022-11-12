@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 19:10:05 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/12 17:03:33 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/12 21:10:21 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,12 @@ PresidentialPardonForm::~PresidentialPardonForm() {}
 
 void	PresidentialPardonForm::execute(Bureaucrat const &execute) const
 {
-	if (this->getIsSigned() == true &&  execute.getGrade() > this->getGRExecIt())
+	if (this->getIsSigned() == true &&  execute.getGrade() < this->getGRExecIt())
 	{
-		
+		std::cout << this->target <<" has been pardoned by Zaphod Beeblebrox.\n";
 	}
+	else if (this->getIsSigned() == false)
+		throw std::invalid_argument("The " + this->getName() + " not yet signed !!!");
+	else
+		throw GradeTooLowException(execute.getName());
 }
