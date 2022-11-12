@@ -6,19 +6,21 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 17:24:27 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/11 20:26:30 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/12 16:50:15 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHRUBBERYCREATIONFORM_H
 # define SHRUBBERYCREATIONFORM_H
 
-# include "form.h"
+# include "Form.hpp"
 
 class ShrubberyCreationForm : public Form
 {
+	private:
+		std::string target;
 	public:
-		ShrubberyCreationForm(std::string const name="", bool isSigned=false, int const gRSignIt=0, int const gRExecIt=0);
+		ShrubberyCreationForm(std::string target="");
 		ShrubberyCreationForm(const ShrubberyCreationForm &form);
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm	&form);
 		~ShrubberyCreationForm();

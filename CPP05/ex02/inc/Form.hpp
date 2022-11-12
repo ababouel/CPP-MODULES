@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.h                                             :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 15:32:23 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/11 22:47:16 by ababouel         ###   ########.fr       */
+/*   Created: 2022/11/12 16:48:49 by ababouel          #+#    #+#             */
+/*   Updated: 2022/11/12 16:48:58 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef FORM_H
-# define FORM_H
+#ifndef FORM_HPP
+# define FORM_HPP
 
 #include <iostream>
 #include "Bureaucrat.h"
@@ -24,9 +24,6 @@ class Form
 		bool				isSigned;
 		int	const			gRSignIt;
 		int	const			gRExecIt;
-		
-	protected:	
-		std::string			target;
 		
 	public:
 		Form(std::string const name="", int const gRSignIt=0, int const gRExecIt=0);

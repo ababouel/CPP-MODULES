@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 14:36:10 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/11 19:40:58 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/12 16:52:09 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define BUREAUCRAT_H
 
 # include <iostream>
-
 class Form;
+// # include "Form.hpp"
 
 class Bureaucrat
 {

@@ -6,30 +6,27 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 18:56:45 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/11 19:47:11 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/12 18:40:18 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.h"
+#include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const name, bool isSigned, int const gRSignIt, int const gRExecIt) : name(name), isSigned(isSigned), gRSignIt(gRSignIt), gRExecIt(gRExecIt)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) :  Form("Shrubbery", 145, 137), target(target)
 {
-	if (this->name == "")
-		throw std::invalid_argument("you must add name and grade ");
-	else if (this->gRSignIt < 1 || this->gRExecIt < 1)
-		throw Form::GradeTooHighException();
-	else if (this->gRSignIt > 145 || this->gRExecIt > 137)
-		throw Form::GradeTooLowException();
+	if (this->target == "")
+		throw std::invalid_argument("you must add a target ");
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &form)
 {
-	
+	*this = form;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm& operator=(const ShrubberyCreationForm	&form)
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm	&form)
 {
-	
+	return ((ShrubberyCreationForm &) form);
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
@@ -39,5 +36,20 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 void	ShrubberyCreationForm::execute(Bureaucrat const &execute) const
 {
-	
+	if (this->getIsSigned() == true && execute.getGrade() <= this->getGRExecIt())
+	{
+		std::ofstream	file(this->target + "_shrubbery");
+		if(file.is_open())
+		{
+			file << 
+			"			 _ \n \
+			| | \n \
+			| |_ _ __ ___  ___ \n \
+			| __| '__/ _ \\/ _ \\ \n \
+			| |_| | |  __/  __/ \n \
+			 \\__|_|  \\___|\\___| \n ";
+			file.close();
+		}
+		std::cout << "heyluck\n";
+	}
 }

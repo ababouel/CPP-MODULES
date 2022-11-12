@@ -6,12 +6,12 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 14:35:47 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/11 19:51:14 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/12 18:30:24 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.h"
-#include "Form.h"
+#include "Form.hpp"
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
@@ -78,7 +78,6 @@ void	Bureaucrat::decrementGrade()
 
 void		Bureaucrat::signForm(Form &form)
 {
-	
 	if (form.getGRSignIt() >= this->getGrade())
 	{
 		form.beSigned(*this);
@@ -91,7 +90,8 @@ void		Bureaucrat::signForm(Form &form)
 
 void		Bureaucrat::executeForm(Form const &form)
 {
-	
+	form.execute(*this);
+	std::cout << this->getName() << " executed " << form;
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)

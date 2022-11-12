@@ -6,11 +6,11 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 14:24:22 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/11 23:30:23 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/12 16:49:42 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.h"
+#include "Form.hpp"
 #include "Bureaucrat.h"
 
 const char* Form::GradeTooHighException::what() const throw()
@@ -23,7 +23,7 @@ const char* Form::GradeTooLowException::what() const throw()
 	return "The bureaucrat grade is too low!!!";
 }
 
-Form::Form(std::string const name, bool isSigned, int const gRSignIt, int const gRExecIt) : name(name), gRSignIt(gRSignIt), gRExecIt(gRExecIt)
+Form::Form(std::string const name, int const gRSignIt, int const gRExecIt) : name(name), gRSignIt(gRSignIt), gRExecIt(gRExecIt)
 {
 	if (this->name == "")
 		throw std::invalid_argument("you must add name and grade ");
