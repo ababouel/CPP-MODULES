@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:32:23 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/08 20:21:01 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/12 22:45:06 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,20 @@ class Form
 		
 		class GradeTooHighException : public std::exception
 		{
+			private:
+				std::string name;
 			public:
+				GradeTooHighException(std::string name) throw();
+				~GradeTooHighException() throw();
 				const char* what() const throw();
 		};
 		class GradeTooLowException : public std::exception
 		{
+			private:
+				std::string name;
 			public:
+				GradeTooLowException(std::string name) throw();
+				~GradeTooLowException() throw();
 				const char* what() const throw();
 		};
 		std::string	getName() const;

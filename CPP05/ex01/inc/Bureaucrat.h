@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 14:36:10 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/08 20:21:34 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/12 23:25:47 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,20 @@ class Bureaucrat
 	
 		class GradeTooHighException : public std::exception
 		{
+			private:
+				std::string name;
 			public:
+				GradeTooHighException(std::string name) throw();
+				~GradeTooHighException() throw();
 				const char* what() const throw();
 		};
 		class GradeTooLowException : public std::exception
 		{
+			private:
+				std::string name;
 			public:
+				GradeTooLowException(std::string name) throw();
+				~GradeTooLowException() throw();
 				const char* what() const throw();
 		};
 		std::string	getName() const;
