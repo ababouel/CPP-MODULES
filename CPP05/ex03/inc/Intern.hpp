@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 00:03:34 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/13 00:57:40 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/14 16:18:01 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # include "Form.hpp"
 class Intern
 {
+	private:
+		Form* shrubbery(std::string target);
+        Form* president(std::string target);
+        Form* robotomy(std::string	target);
 	public:
 		Intern();
 		Intern(const Intern &intern);
