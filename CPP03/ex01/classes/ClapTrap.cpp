@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 01:50:37 by ababouel          #+#    #+#             */
-/*   Updated: 2022/09/21 14:23:40 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/14 19:01:06 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,21 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    if(amount <= this->htPoints)
-        this->htPoints -= amount;
-    else
-        this->htPoints = 0;
-    std::cout << this->name << " : takeDamage "<< amount <<" , left "<< this->htPoints << " hitpoint " << std::endl;
+    if (this->enPoints > 0 && this->htPoints > 0)
+    {
+        if(amount <= this->htPoints)
+        {
+            this->htPoints -= amount;
+            std::cout << this->name << " : takeDamage "<< amount <<" , left "<< this->htPoints << " hitpoint " << std::endl;
+        }
+        else
+            this->htPoints = 0;
+    }
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    if (this->enPoints > 0)
+    if (this->enPoints > 0 && this->htPoints > 0)
     {
         this->enPoints--;
         this->htPoints += amount;

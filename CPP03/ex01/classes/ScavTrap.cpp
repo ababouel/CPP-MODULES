@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 17:03:47 by ababouel          #+#    #+#             */
-/*   Updated: 2022/10/28 12:39:09 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/14 18:08:03 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,12 @@ void ScavTrap::attack(const std::string& target)
     if (this->htPoints > 0 && this->enPoints > 0)
     {
         this->enPoints--;
-        std::cout << this->name << " : attacks "<< target <<" , causing "<< this->atDamage <<" points of damage!"<< std::endl;
+        std::cout << this->name << " : attacks "<< target <<" , causing "<< this->atDamage <<" points of damage Scavtrap!!!"<< std::endl;
     }
 }
 
 void    ScavTrap::guardGate()
 {
-    std::cout << this->name << " is now in Gate keeper mode." << std::endl;
+    if (this->htPoints > 0 && this->enPoints > 0)
+        std::cout << this->name << " is now in Gate keeper mode." << std::endl;
 }
