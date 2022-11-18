@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 03:23:35 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/18 04:20:45 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/18 04:41:13 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	iter(T *tab, int size, void (func)(T &x, T &y))
 	for (int x = 0; x < size; x++)
 	{
 		a = x + 1;
-		if ((a < size) && (rand() % 2))
+		if ((a < size))
 		{
 			func(tab[x], tab[a]);
 		}
