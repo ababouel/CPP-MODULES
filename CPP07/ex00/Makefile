@@ -6,7 +6,7 @@
 #    By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 14:32:27 by ababouel          #+#    #+#              #
-#    Updated: 2022/11/18 00:34:32 by ababouel         ###   ########.fr        #
+#    Updated: 2022/11/18 02:37:14 by ababouel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = C++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 BDIR = build
 FILES = main  
-NAME = base
+NAME = template
 HEADERS = whatever.hpp
 OBJ = $(addprefix $(BDIR)/, $(FILES:=.o))
 
