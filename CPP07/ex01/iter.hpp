@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 03:23:35 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/18 04:41:13 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/19 15:51:53 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@
 template < typename T>
 void	swap(T &a, T &b)
 {
-	T c;
-	c = a;
+	T c = a;
 	a = b;
 	b = c;
 }
