@@ -6,7 +6,7 @@
 #    By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 14:32:27 by ababouel          #+#    #+#              #
-#    Updated: 2022/11/18 03:57:15 by ababouel         ###   ########.fr        #
+#    Updated: 2022/11/19 20:27:21 by ababouel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ CC = C++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 BDIR = build
 FILES = main  
-NAME = template
-HEADERS = iter.hpp
+NAME = array
+HEADERS = Array.hpp
 OBJ = $(addprefix $(BDIR)/, $(FILES:=.o))
 
 all: $(NAME)

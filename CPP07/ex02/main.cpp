@@ -6,25 +6,61 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 00:31:17 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/18 04:40:56 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/19 20:26:41 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iter.hpp"
+#include <iostream>
+#include "Array.hpp"
 
-int main( void ) 
+#define MAX_VAL 750
+int main(int, char**)
 {
-	std::string data[3] = {"hello world", "hi", "who am I ?"};
-	::iter(data, 3,::swap);
-	std::cout << "data=> " << data[0] << "\n";
-	std::cout << "data=> " << data[1] << "\n";
-	std::cout << "data=> " << data[2] << "\n";
-	int dt[5] = {1,2,3,4,5};
-	::iter(dt, 4,::swap);
-	std::cout << "data=> " << dt[0] << "\n";
-	std::cout << "data=> " << dt[1] << "\n";
-	std::cout << "data=> " << dt[2] << "\n";
-	std::cout << "data=> " << dt[3] << "\n";
-	std::cout << "data=> " << dt[4] << "\n";
-	return (0);
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+		std::cout<< "number=> "<< numbers[i] << "\n";
+    }
+    delete [] mirror;//
+    return 0;
 }
