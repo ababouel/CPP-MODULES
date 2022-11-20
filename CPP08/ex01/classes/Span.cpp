@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 01:47:53 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/20 05:50:39 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/20 23:22:43 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 
 
-Span::Span(): N(0), length(0), ls(NULL){}
+Span::Span(): N(0), ls(NULL){}
 
-Span::Span(unsigned int N) : N(N), length(0)
+Span::Span(unsigned int N) : N(N)
 {
 	this->ls = new std::vector<int>[N];
 }
@@ -46,10 +46,9 @@ void	Span::addNumber(int number)
 {
 	try
 	{
-		if (this->length == this->N)
+		if (this->ls->size() == this->N)
 			throw std::out_of_range("the list has reached the limit !!!");
 		this->ls->push_back(number);
-		this->length++;
 	}
 	catch (std::out_of_range e)
 	{

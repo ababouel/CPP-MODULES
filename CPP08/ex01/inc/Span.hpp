@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 01:21:35 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/20 05:42:39 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/20 23:04:11 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class Span
 {
 	private:
 		unsigned int		N;
-		unsigned int		length;
 		std::vector<int>*	ls;
 	public:
 		Span();
