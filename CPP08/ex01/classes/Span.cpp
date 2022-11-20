@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 01:47:53 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/20 04:27:49 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/20 05:50:39 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,49 +57,29 @@ void	Span::addNumber(int number)
 	}
 }
 
-void	Span::addListNumbers(int& numbers)
+void	Span::addListNumbers(int* numbers, unsigned int size)
 {
-	try
-	{
-		if (this->N < (sizeof(numbers)/sizeof(int)))
-			throw std::out_of_range("the list of int are greater than the limit of list !!!");
-		this->ls->assign(numbers, numbers + N);
-	}
-	catch (std::out_of_range e)
-	{
-		std::cout << e.what() << "\n";
-	}
+	if (this->N < size)
+		throw std::out_of_range("the list of int are greater than the limit of list !!!");
+	this->ls->assign(numbers, numbers + N);
 }
 
 int	Span::shortestSpan()	const
 {
-	try
-	{
-		if (N == 0 || N == 1)
-			throw std::out_of_range("the list of int are greater than the limit of list !!!");
-		std::sort(this->ls->begin(), this->ls->end());
-		
-		return(*(std::min_element(ls->begin(), ls->end())));
-	}
-	catch (std::out_of_range e)
-	{
-		std::cout << e.what() << "\n";
-	}
-	return (-1);
+	if (N == 0 || N == 1)
+		throw std::out_of_range("the list of int are greater than the limit of list !!!");
+	std::sort(this->ls->begin(), this->ls->end());
+	std::vector<int> a[N - 1];
+	for (unsigned int x = 0; x < (N - 1); x++)
+		a->push_back(ls->at(x + 1) - ls->at(x));
+	std::sort(a->begin(),a->end());
+	return(a->front());
 }
 
 int	Span::longestSpan()	const
 {
-	try
-	{
-		if (N == 0 || N == 1)
-			throw std::out_of_range("the list of int are greater than the limit of list !!!");
-		std::sort(this->ls->begin(), this->ls->end());
-		return (ls->back() - ls->front());
-	}
-	catch (std::out_of_range e)
-	{
-		std::cout << e.what() << "\n";
-	}
-	return (-1);
+	if (N == 0 || N == 1)
+		throw std::out_of_range("the list have less than one or one int !!!");
+	std::sort(this->ls->begin(), this->ls->end());
+	return (ls->back() - ls->front());
 }

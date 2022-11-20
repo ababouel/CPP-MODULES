@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 01:21:35 by ababouel          #+#    #+#             */
-/*   Updated: 2022/11/20 04:11:33 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/11/20 05:42:39 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,9 @@ class Span
 		~Span();
 		
 		void	addNumber(int number);
-		void 	addListNumbers(int& numbers);
+		void 	addListNumbers(int* numbers, unsigned int size);
 		int		shortestSpan()	const;
 		int		longestSpan()	const;
 };
-
-// bool	ft_comp(int i, int j);
 
 #endif
