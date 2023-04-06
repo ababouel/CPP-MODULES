@@ -6,7 +6,7 @@
 #    By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 16:12:09 by ababouel          #+#    #+#              #
-#    Updated: 2023/04/04 16:20:13 by ababouel         ###   ########.fr        #
+#    Updated: 2023/04/06 02:23:46 by ababouel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ BDIR = build
 FILES = main BitcoinExchange
 NAME = btc
 HEADERS = BitcoinExchange.hpp
-OBJ = $(addprefix $(BDIR)/, $(FILES:=.0))
+OBJ = $(addprefix $(BDIR)/, $(FILES:=.o))
 
 all: $(NAME)
 
@@ -31,5 +31,8 @@ clean:
 	rm -rf build
 
 re: fclean all
+
+fclean: clean
+	rm -rf btc
 
 .PHONY: re all clean fclean
