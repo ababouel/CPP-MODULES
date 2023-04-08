@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 02:28:46 by ababouel          #+#    #+#             */
-/*   Updated: 2023/04/06 03:15:43 by ababouel         ###   ########.fr       */
+/*   Updated: 2023/04/08 03:10:25 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ class BitcoinExchange
         std::ifstream					data;
 		std::ifstream					input;
     public:
-        BitcoinExchange(std::string ss);
+        BitcoinExchange();
+        BitcoinExchange(std::string nameFile);
         ~BitcoinExchange();
 		void	showListDatabase();
+        void    splitSS(std::stringstream& str, char sep);
 };
-
-std::pair<std::string, float>	splitSS(std::string str, std::string sep);
 
 #endif
