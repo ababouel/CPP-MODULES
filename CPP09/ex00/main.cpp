@@ -14,13 +14,9 @@
 
 int main(int ac, char* argv[])
 {
-    (void) ac;
-    (void) argv;
     if (ac == 2)
     {
-        std::string str = "";
-        str += argv[1];
-        BitcoinExchange(str);
+        BitcoinExchange btc(argv[1]);
     }
     return (0);
 }
