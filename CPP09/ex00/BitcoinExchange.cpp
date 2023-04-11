@@ -127,7 +127,7 @@ void    BitcoinExchange::showMessage(int index, std::string word)
             std::cout << "Error: not a positive number.\n";
             break;
         case 2:
-            std::cout << "Error: bad input => " + word + "\n";
+            std::cout << "Error: bad input => " + word.substr() + "\n";
             break;
         case 3:
             std::cout << "Error: too large a number.\n";
@@ -142,8 +142,28 @@ void    BitcoinExchange::showMessage(int index, std::string word)
 
 int BitcoinExchange::checkInputArg(size_t index, std::string word)
 {
+    std::tm date = {};
     if (index == word.npos || word.substr(index + 1).length() == 0)
         return (1);
+    if (strptime(word.substr(0,index).c_str(), "%Y-%m-%d", &date) == nullptr)
+        return (1);
+    if (date.tm_year < 2009 && date.tm_mon < 1 && date.tm_mday < 2)
+        return (1);
+    
+    if ((date.tm_mon == 2 && date.tm_mday > 29)
+            || (!isLeapYear(date) && date.tm_mon == 2 && date.tm_mday > 28))
+        return (1);
+    return (0);
+}
+
+bool    isLeapYear(std::tm date)
+{
+    if (date.tm_year % 4 != 0)
+        return (false);
+    else if (date.tm_year % 100 != 0)
+        return (true);
+    else if (date.tm_year % 400 != 0)
+        return (false);
     else
-        return (0);
+        return (true);
 }
