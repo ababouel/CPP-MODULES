@@ -18,7 +18,8 @@ int main(int ac, char* argv[])
         if (ac != 2)
             throw std::invalid_argument("Error: could not open file.\n"); 
         BitcoinExchange btc(argv[1]);
-        btc.showListDatabase();
+        // btc.showListDatabase();
+        btc.showResult();
     } 
     catch( std::exception& e) {
         std::cerr << e.what();

@@ -49,7 +49,7 @@ void    BitcoinExchange::splitSS(std::stringstream& str)
     while (!str.eof()) {
         std::getline(str, word);
         injectDate(word, dbDate, ',');
-        if (dbDate.date != "NULL" && dbDate.exchange != -1)
+        if (dbDate.date != "NULL" && dbDate.exchange != "NULL")
             dataBase[dbDate.date] = dbDate.exchange;
     }
 }
@@ -64,27 +64,26 @@ void  injectDate(std::string word,date_type& date, char sep)
     else
         date.date = "NULL";
     if (word.substr(index + 1).length() > 0)
-        date.exchange = std::stof(word.substr(index + 1));
+        date.exchange = word.substr(index + 1);
     else
-        date.exchange = -1;
+        date.exchange = "NULL";
 }
 
 
 void    BitcoinExchange::processInput(std::string word)
 {
     size_t  index;
-    float   number;
+    int     result;
     
     index = word.find('|');
-    if (index != word.npos || word.substr(index + 1).length() > 0)
-    {
-        
-        if (num)
-        ipDate.date = word.substr(0 , index);
-        ipDate.exchange = std::stof(word.substr(index + 1));
+    if ((result = checkResult(index, word)) == 0) {
+        ipDate.date = word.substr(0 , index - 1);
+        ipDate.exchange = word.substr(index + 1);
+        dBIter = dataBase.lower_bound(ipDate.date);
+        if ( dBIter->first != ipDate.date && dBIter != dataBase.begin())
+            dBIter--;
     }
-    else
-        throw std::runtime_error("Error: bad input => " + word + "\n");
+    showMessage(result, word);
 }
 
 void    BitcoinExchange::showResult()
@@ -97,12 +96,54 @@ void    BitcoinExchange::showResult()
     while (!ssIn.eof())
     {
         std::getline(ssIn, word);
+        processInput(word);
     }
 }
 
-float   exchangeResult(float input, float data)
+float   exchangeResult(std::string input, std::string   data)
 {
-    float result;
-    result  = input * data;
+    float result = std::stof(input) * std::stof(data);
     return (result);
+}
+
+int    BitcoinExchange::checkResult(size_t index,std::string word)
+{
+    if (checkInputArg(index, word))
+        return (2);
+    else if (std::stof(word.substr(index + 1)) < 0)
+        return (1);
+    else if (std::stof(word.substr(index + 1)) > 1000)
+        return (3);
+    else
+        return (0);
+}
+
+
+void    BitcoinExchange::showMessage(int index, std::string word)
+{
+    switch(index)
+    {
+        case 1:
+            std::cout << "Error: not a positive number.\n";
+            break;
+        case 2:
+            std::cout << "Error: bad input => " + word + "\n";
+            break;
+        case 3:
+            std::cout << "Error: too large a number.\n";
+            break;
+        case 0:
+           std::cout << ipDate.date
+                    << " => " << ipDate.exchange 
+                    << " = " << exchangeResult(dBIter->second,ipDate.exchange) << std::endl;
+            break;
+    };
+}
+
+int BitcoinExchange::checkInputArg(size_t index, std::string word)
+{
+    if (index == word.npos || word.substr(index + 1).length() == 0)
+        return (1);
+    else
+        return (0);
 }

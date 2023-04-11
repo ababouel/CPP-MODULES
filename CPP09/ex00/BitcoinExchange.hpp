@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 02:28:46 by ababouel          #+#    #+#             */
-/*   Updated: 2023/04/10 02:52:22 by ababouel         ###   ########.fr       */
+/*   Updated: 2023/04/11 02:25:14 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 struct  date_type
 {
     std::string     date;
-    float           exchange;
+    std::string     exchange;
 };
 
 class BitcoinExchange
@@ -34,8 +34,8 @@ class BitcoinExchange
         date_type                               ipDate;
         std::ifstream					        data;
 		std::ifstream					        input;
-        std::map<std::string, float>	        dataBase;
-        std::map<std::string, float>::iterator	dBIter;
+        std::map<std::string, std::string>	        dataBase;
+        std::map<std::string, std::string>::iterator	dBIter;
     public:
         BitcoinExchange();
         BitcoinExchange(char* nameFile);
@@ -44,9 +44,11 @@ class BitcoinExchange
         void    splitSS(std::stringstream& str);
         void    showResult();
         void    processInput(std::string word);
+        int     checkResult(size_t index, std::string word);
+        int     checkInputArg(size_t index, std::string word);
+        void    showMessage(int index, std::string word);
 };
 
 void    injectDate(std::string word, date_type& date, char sep);
-float   exchangeResult(float input, float data);
-
+float   exchangeResult(std::string  input, std::string data);
 #endif
