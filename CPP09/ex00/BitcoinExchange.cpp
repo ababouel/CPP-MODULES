@@ -147,7 +147,6 @@ int BitcoinExchange::checkInputArg(size_t index, std::string word)
         return (1);
     if (strptime(word.substr(0,index).c_str(), "%Y-%m-%d", &date) == nullptr)
         return (1);
-    // std::cout << date.tm_year+1900 << "-" << date.tm_mon+1 << "-" << date.tm_mday <<"\n";
     if ((date.tm_year + 1900) < 2009 && (date.tm_mon + 1) < 1 && date.tm_mday < 2)
         return (1);
     if (((date.tm_mon + 1) == 2 && date.tm_mday > 29)
