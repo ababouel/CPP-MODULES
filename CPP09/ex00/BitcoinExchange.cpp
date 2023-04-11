@@ -147,22 +147,23 @@ int BitcoinExchange::checkInputArg(size_t index, std::string word)
         return (1);
     if (strptime(word.substr(0,index).c_str(), "%Y-%m-%d", &date) == nullptr)
         return (1);
-    if (date.tm_year < 2009 && date.tm_mon < 1 && date.tm_mday < 2)
+    // std::cout << date.tm_year+1900 << "-" << date.tm_mon+1 << "-" << date.tm_mday <<"\n";
+    if ((date.tm_year + 1900) < 2009 && (date.tm_mon + 1) < 1 && date.tm_mday < 2)
         return (1);
-    
-    if ((date.tm_mon == 2 && date.tm_mday > 29)
-            || (!isLeapYear(date) && date.tm_mon == 2 && date.tm_mday > 28))
+    if (((date.tm_mon + 1) == 2 && date.tm_mday > 29)
+            || (!isLeapYear(date) && (date.tm_mon + 1) == 2 && date.tm_mday > 28))
         return (1);
     return (0);
 }
 
 bool    isLeapYear(std::tm date)
 {
-    if (date.tm_year % 4 != 0)
+    int year = date.tm_year + 1900;
+    if (year % 4 != 0)
         return (false);
-    else if (date.tm_year % 100 != 0)
+    else if (year % 100 != 0)
         return (true);
-    else if (date.tm_year % 400 != 0)
+    else if (year % 400 != 0)
         return (false);
     else
         return (true);
