@@ -167,3 +167,8 @@ bool    isLeapYear(std::tm date)
     else
         return (true);
 }
+
+
+// #check empty line 
+// #check date | value if remove it 
+// #2011-01-03 hdj =>  3 = 0.9
