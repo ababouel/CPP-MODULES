@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 22:55:58 by ababouel          #+#    #+#             */
-/*   Updated: 2023/04/13 02:59:05 by ababouel         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:52:21 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class RPN
 
         bool			isNum(std::string str);
         bool			isOP(std::string str);
-
+        void            resultOP(std::string str);
     public:
         RPN(char* args);
         ~RPN();
