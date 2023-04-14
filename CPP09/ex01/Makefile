@@ -6,7 +6,7 @@
 #    By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 16:12:09 by ababouel          #+#    #+#              #
-#    Updated: 2023/04/11 22:55:15 by ababouel         ###   ########.fr        #
+#    Updated: 2023/04/14 02:04:37 by ababouel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,6 @@ clean:
 re: fclean all
 
 fclean: clean
-	rm -rf btc
+	rm -rf RPN
 
 .PHONY: re all clean fclean
