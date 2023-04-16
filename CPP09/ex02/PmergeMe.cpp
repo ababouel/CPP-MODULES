@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 02:15:46 by ababouel          #+#    #+#             */
-/*   Updated: 2023/04/16 03:20:53 by ababouel         ###   ########.fr       */
+/*   Updated: 2023/04/16 18:06:37 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,35 +35,44 @@ PmergeMe::PmergeMe(char **arr)
 
 PmergeMe::~PmergeMe() {}
 
-void    PmergeMe::insertSort()
+void    PmergeMe::insertSort(std::vector<int> &array, int n)
 {
     int temp;
+    int x;
+    int y;
     std::cout <<"array unsorted => ";
-    for(size_t x = 0 ; x < vect.size(); x++)
-        std::cout << vect[x] << " ";
+    for(size_t x = 0 ; x < array.size(); x++)
+        std::cout << array[x] << " ";
     std::cout <<"\n";
-    for (int x = vect.size(); x > 0; x--)
+    for (x = 1; x < n; x++)
     {
-        for (int y =(vect.size()); y > 0; y--)
+        temp = array[x];
+        y = x - 1;
+        while (y >= 0 && array[y] > temp)
         {
-            if (vect[y] < vect[x])
-            {
-                temp = vect[y];
-                vect[y] = vect[x];
-                vect[x] = temp;
-            }
+            array[y + 1] = array[y];
+            y = y - 1;
         }
+        array[y + 1] = temp;
     }
     std::cout <<"array sorted => ";
-    for(size_t x = 0 ; x < vect.size(); x++)
-        std::cout << vect[x] << " ";
+    for(size_t x = 0 ; x < array.size(); x++)
+        std::cout << array[x] << " ";
     std::cout <<"\n";
 }
 
-void    PmergeMe::mergeSort()
+void    PmergeMe::mergeSort(std::vector<int> array, int begin, int end)
 {
-    size_t n = vect.size() / 2;
-    if (n > 5)   
+    int mid = (begin + end) / 2;
+    if (begin < end )
+    {
+        if ((end - begin) > 5)
+        {
+            mergeSort(array, begin, mid);
+            mergeSort(array, mid + 1, end); 
+        }
+        merge(array, begin, mid, end);
+    }
 }
 
 
@@ -77,4 +86,23 @@ bool    PmergeMe::isNum(std::string str)
         it++;
     }
     return (true);
+}
+
+void    PmergeMe::merge(std::vector<int> array, int begin , int mid, int end)
+{
+    
+    std::vector<int> temp1;
+    std::vector<int> temp2;
+    
+    for (int x = begin; x < mid; x++)
+        temp1.push_back(array[x]);
+    for (int x = mid + 1; x < end; x++)
+        temp2.push_back(array[x]);
+    insertSort(temp1, temp1.size());
+    insertSort(temp2, temp2.size());
+
+    
+    // std::vector<int> array;
+    
+    // while()    
 }

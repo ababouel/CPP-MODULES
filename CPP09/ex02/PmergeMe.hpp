@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 02:15:49 by ababouel          #+#    #+#             */
-/*   Updated: 2023/04/16 02:51:32 by ababouel         ###   ########.fr       */
+/*   Updated: 2023/04/16 18:05:24 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,14 @@
 class PmergeMe
 {
     private:
-        std::vector<int>    vect;
         std::stringstream   ss;
     public:
+        std::vector<int>    vect;
         PmergeMe(char **arr);
         ~PmergeMe();
-        void    insertSort();
-        void    mergeSort();
+        void    insertSort(std::vector<int> &array, int n);
+        void    mergeSort(std::vector<int> array, int begin, int end);
+        void    merge(std::vector<int> array, int begin, int mid, int end);
         bool    isNum(std::string str);
 };
 
