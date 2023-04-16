@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 02:15:46 by ababouel          #+#    #+#             */
-/*   Updated: 2023/04/16 02:21:18 by ababouel         ###   ########.fr       */
+/*   Updated: 2023/04/16 03:20:53 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 PmergeMe::PmergeMe(char **arr)
 {
     std::string var;
+    
     for (int x = 1; arr[x] != NULL ; x++)
     {
         ss << arr[x];
@@ -32,10 +33,7 @@ PmergeMe::PmergeMe(char **arr)
     }
 }
 
-PmergeMe::~PmergeMe()
-{
-    
-}
+PmergeMe::~PmergeMe() {}
 
 void    PmergeMe::insertSort()
 {
@@ -61,6 +59,13 @@ void    PmergeMe::insertSort()
         std::cout << vect[x] << " ";
     std::cout <<"\n";
 }
+
+void    PmergeMe::mergeSort()
+{
+    size_t n = vect.size() / 2;
+    if (n > 5)   
+}
+
 
 bool    PmergeMe::isNum(std::string str)
 {

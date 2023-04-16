@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 02:15:49 by ababouel          #+#    #+#             */
-/*   Updated: 2023/04/16 02:12:58 by ababouel         ###   ########.fr       */
+/*   Updated: 2023/04/16 02:51:32 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class PmergeMe
         PmergeMe(char **arr);
         ~PmergeMe();
         void    insertSort();
+        void    mergeSort();
         bool    isNum(std::string str);
 };
 
