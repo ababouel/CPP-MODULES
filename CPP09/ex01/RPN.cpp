@@ -22,7 +22,10 @@ void    RPN::result()
                 throw std::runtime_error("Error\n");
         }
 	}
-    std::cout << st.top() << std::endl;
+    if (st.size() == 1)
+        std::cout << st.top() << std::endl;
+    else
+        throw std::runtime_error("Error\n");
 }
 
 bool    RPN::isNum(std::string str)
