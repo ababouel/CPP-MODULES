@@ -74,7 +74,7 @@ void    BitcoinExchange::processInput(std::string word)
 {
     size_t  index;
     int     result;
-    
+
     index = word.find('|');
     if ((result = checkResult(index, word)) == 0) {
         ipDate.date = word.substr(0 , index - 1);
@@ -108,7 +108,8 @@ float   exchangeResult(std::string input, std::string   data)
 
 int    BitcoinExchange::checkResult(size_t index,std::string word)
 {
-    if (checkInputArg(index, word))
+    
+    if (checkNumSep(word) != 2 || checkInputArg(index, word))
         return (2);
     else if (std::stof(word.substr(index + 1)) < 0)
         return (1);
@@ -166,6 +167,22 @@ bool    isLeapYear(std::tm date)
         return (false);
     else
         return (true);
+}
+
+int checkNumSep(std::string word)
+{
+    std::stringstream   ss;
+    std::string         var;
+    int                 num;
+
+    num = 0;
+    ss << word;
+    while (getline(ss, var, '|'))
+    {
+        if (!var.empty())
+            num++;
+    }
+    return (num);
 }
 
 

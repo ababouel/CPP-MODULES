@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 02:28:46 by ababouel          #+#    #+#             */
-/*   Updated: 2023/04/11 17:57:07 by ababouel         ###   ########.fr       */
+/*   Updated: 2023/04/17 22:59:13 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,5 @@ class BitcoinExchange
 void    injectDate(std::string word, date_type& date, char sep);
 float   exchangeResult(std::string  input, std::string data);
 bool    isLeapYear(std::tm date);
+int     checkNumSep(std::string word);
 #endif
