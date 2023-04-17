@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 02:15:49 by ababouel          #+#    #+#             */
-/*   Updated: 2023/04/17 03:02:12 by ababouel         ###   ########.fr       */
+/*   Updated: 2023/04/17 22:12:13 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <sstream>
 # include <string>
 # include <bits/stdc++.h>
-# include <time.h>
+# include <ctime>
 
 class PmergeMe
 {
@@ -31,10 +31,10 @@ class PmergeMe
     public:
         std::vector<int>    after;
         std::deque<int>     qAfter;
-        clock_t             vector_startTime;
-        clock_t             vector_endTime;
-        clock_t             dque_startTime;
-        clock_t             dque_endTime;
+        std::clock_t             vector_startTime;
+        std::clock_t             vector_endTime;
+        std::clock_t             dque_startTime;
+        std::clock_t             dque_endTime;
         PmergeMe(char **arr);
         ~PmergeMe();
         std::vector<int>    insertSort(std::vector<int> array, int n);

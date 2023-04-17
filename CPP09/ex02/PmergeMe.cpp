@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 02:15:46 by ababouel          #+#    #+#             */
-/*   Updated: 2023/04/17 03:06:59 by ababouel         ###   ########.fr       */
+/*   Updated: 2023/04/17 22:53:34 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ std::vector<int>    PmergeMe::mergeSort(std::vector<int> array)
 {
     if (array.size() <= 10)
        return  (insertSort(array, array.size()));
-    
     int mid = array.size() / 2;
     std::vector<int> left(array.begin(),array.begin() + mid); 
     std::vector<int> right(array.begin() + mid,array.end()); 
@@ -94,8 +93,7 @@ std::vector<int>    PmergeMe::mergeSort(std::vector<int> array)
 std::deque<int>    PmergeMe::mergeSort(std::deque<int> array)
 {
     if (array.size() <= 10)
-       return  (insertSort(array, array.size()));
-    
+       return  (insertSort(array, array.size())); 
     int mid = array.size() / 2;
     std::deque<int> left(array.begin(),array.begin() + mid); 
     std::deque<int> right(array.begin() + mid,array.end()); 
@@ -182,13 +180,13 @@ std::deque<int> PmergeMe::merge(std::deque<int> left, std::deque<int> right)
 
 void    PmergeMe::showResult()
 {
-    vector_startTime = clock();
+    vector_startTime = std::clock();
     after = mergeSort(before);
-    vector_endTime = clock();
+    vector_endTime = std::clock();
     
-    dque_startTime = clock();
+    dque_startTime = std::clock();
     qAfter = mergeSort(qBefore);
-    dque_endTime = clock();
+    dque_endTime = std::clock();
     
     std::cout <<"before: ";
     for(size_t x = 0 ; x < before.size(); x++)
