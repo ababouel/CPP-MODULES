@@ -6,12 +6,12 @@
 #    By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 16:12:09 by ababouel          #+#    #+#              #
-#    Updated: 2023/04/14 02:09:04 by ababouel         ###   ########.fr        #
+#    Updated: 2023/04/17 02:30:01 by ababouel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = C++
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+CFLAGS = -Wall -Werror -Wextra -std=c++98 
 BDIR = build
 FILES = main PmergeMe
 NAME = PmergeMe
