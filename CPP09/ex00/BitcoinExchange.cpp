@@ -92,8 +92,8 @@ void    BitcoinExchange::showResult()
     
     ssIn << this->input.rdbuf();
     std::getline(ssIn, word);
-    if (!isalpha(word[0]))
-        throw std::runtime_error("Error: the first line need date | value ");
+    if (checkNumSep(word) != 3 || word != "date | value")
+        throw std::runtime_error("Error: the first line need date | value\n");
     while (!ssIn.eof())
     {
         std::getline(ssIn, word);
