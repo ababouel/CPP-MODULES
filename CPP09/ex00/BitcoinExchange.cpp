@@ -45,7 +45,6 @@ void    BitcoinExchange::splitSS(std::stringstream& str)
   
     std::string word;
     std::getline(str,word);
-    
     while (!str.eof()) {
         std::getline(str, word);
         injectDate(word, dbDate, ',');
@@ -93,10 +92,13 @@ void    BitcoinExchange::showResult()
     
     ssIn << this->input.rdbuf();
     std::getline(ssIn, word);
+    if (!isalpha(word[0]))
+        throw std::runtime_error("Error: the first line need date | value ");
     while (!ssIn.eof())
     {
         std::getline(ssIn, word);
-        processInput(word);
+        if (!word.empty())
+            processInput(word);
     }
 }
 
@@ -109,7 +111,7 @@ float   exchangeResult(std::string input, std::string   data)
 int    BitcoinExchange::checkResult(size_t index,std::string word)
 {
     
-    if (checkNumSep(word) != 2 || checkInputArg(index, word))
+    if (checkNumSep(word) != 3 || checkInputArg(index, word))
         return (2);
     else if (std::stof(word.substr(index + 1)) < 0)
         return (1);
@@ -177,15 +179,10 @@ int checkNumSep(std::string word)
 
     num = 0;
     ss << word;
-    while (getline(ss, var, '|'))
+    while (getline(ss, var, ' '))
     {
         if (!var.empty())
             num++;
     }
     return (num);
 }
-
-
-// #check empty line 
-// #check date | value if remove it 
-// #2011-01-03 hdj =>  3 = 0.9
